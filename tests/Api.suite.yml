@@ -1,0 +1,10 @@
+actor: ApiTester
+suite_namespace: Tests\Api
+modules:
+    enabled:
+        - REST:
+            url: http://localhost:3000/
+            depends: PhpBrowser
+            part: Json
+step_decorators:
+    - \Codeception\Step\AsJson

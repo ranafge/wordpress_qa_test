@@ -1,0 +1,14 @@
+
+Full Name input
+Nickname 	input field
+Address	input field
+Date of Birth Day input field
+Date of Birth Month	select option field
+Date of Birth Year	input
+Email Address input field
+Website	input field
+Save Changes button
+
+
+
+

@@ -1,0 +1,39 @@
+actor: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver:
+            url: "http://localhost/wordpress"
+            browser: chrome
+            capabilities:
+                goog:chromeOptions:
+                   args: ["--headless"]
+        - \Codeception\Module\Asserts
+
+# Add Codeception\Step\Retry trait to AcceptanceTester to enable retries
+step_decorators:
+    - Codeception\Step\ConditionalAssertion
+    - Codeception\Step\TryTo
+    - Codeception\Step\Retry
+
+suites:
+    acceptance:
+        path: tests/Acceptance
+
+env:
+    chrome:
+        modules:
+            config:
+                WebDriver:
+                    browser: chrome
+
+    firefox:
+        modules:
+            config:
+                WebDriver:
+                    browser: firefox
+                    port: 5555
+                    capabilities:
+                        moz:firefoxOptions:
+                            binary: "/usr/bin/firefox"  # Specify the Firefox binary location
+                            profile: "/home/rana/snap/firefox/common/.mozilla/firefox/o3vts7vw.Default User"
+
